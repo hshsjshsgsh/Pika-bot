@@ -90,10 +90,10 @@ def get_player_display_name(player, guild_id=None):
     base_name = ""
     if hasattr(player, 'nick') and player.nick:
         base_name = player.nick
-    elif hasattr(player, 'display_name'):
-        base_name = player.display_name
-    elif hasattr(player, 'name'):
-        base_name = player.name
+    elif hasattr(player, 'nick'):
+        base_name = player.nick
+    elif hasattr(player, 'nick'):
+        base_name = player.nick
     else:
         base_name = str(player)
 
@@ -529,35 +529,35 @@ class TournamentConfigModal(discord.ui.Modal, title="Tournament Configuration"):
     title_field = discord.ui.TextInput(
         label="🏆 Tournament Title",
         placeholder="Enter tournament title...",
-        default="Stumble Guys Tournament",
+        default="",
         max_length=100
     )
 
     map_field = discord.ui.TextInput(
         label="🗺️ Map",
         placeholder="Enter map name...",
-        default="BlockDash",
+        default="",
         max_length=50
     )
 
     abilities_field = discord.ui.TextInput(
         label="💥 Abilities",
         placeholder="Enter abilities...",
-        default="Punch, Spatula, Kick",
+        default="",
         max_length=100
     )
 
     mode_and_players_field = discord.ui.TextInput(
         label="🎮 Mode & Max Players",
         placeholder="2v2 8 (format: mode maxplayers)",
-        default="2v2 8",
+        default="",
         max_length=20
     )
 
     prize_field = discord.ui.TextInput(
         label="💶 Prize",
         placeholder="Enter prize...",
-        default="Default",
+        default="",
         max_length=50
     )
 
@@ -606,10 +606,10 @@ class TournamentConfigModal(discord.ui.Modal, title="Tournament Configuration"):
         tournament.active = False
 
         embed = discord.Embed(title=f"🏆 {tournament.title}", color=0x00ff00)
-        embed.add_field(name="<:map:1407383523261677792> Map", value=tournament.map, inline=True)
-        embed.add_field(name="<:abilities:1404513040505765939> Abilities", value=tournament.abilities, inline=True)
+        embed.add_field(name="🗺️ Map", value=tournament.map, inline=True)
+        embed.add_field(name="💥 Abilities", value=tournament.abilities, inline=True)
         embed.add_field(name="🎮 Mode", value=tournament.mode, inline=True)
-        embed.add_field(name="<:gem:1407382933496533063> Prize", value=tournament.prize, inline=True)
+        embed.add_field(name="<:LotsOfGems:1383151614940151908> Prize", value=tournament.prize, inline=True)
         embed.add_field(name="👥 Max Players", value=str(max_players), inline=True)
 
         # Enhanced Stumble Guys rules with colors
@@ -625,7 +625,7 @@ class TournamentConfigModal(discord.ui.Modal, title="Tournament Configuration"):
             "🔹 **NO ALTS** - One account per player only"
         )
 
-        embed.add_field(name="<:notr:1404513929522188329> **Stumble Guys Tournament Rules**", value=rules_text, inline=False)
+        embed.add_field(name="📜 **Stumble Guys Tournament Rules**", value=rules_text, inline=False)
 
         view = TournamentView()
         # Update the participant count button to show correct max players
