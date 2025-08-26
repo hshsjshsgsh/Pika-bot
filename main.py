@@ -89,12 +89,12 @@ def get_player_display_name(player, guild_id=None):
 
     # Priority: nick > display_name > name > str(player)
     base_name = ""
-    if hasattr(player, 'nick') and player.nick:
-        base_name = player.nick
-    elif hasattr(player, 'nick'):
-        base_name = player.nick
-    elif hasattr(player, 'nick'):
-        base_name = player.nick
+    if hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
+    elif hasattr(player, 'user.name'):
+        base_name = player.user.name
+    elif hasattr(player, 'user.name'):
+        base_name = player.user.name
     else:
         base_name = str(player)
 
