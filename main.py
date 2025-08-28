@@ -134,28 +134,28 @@ class TournamentConfigModal(discord.ui.Modal, title="Tournament Configuration"):
     map_field = discord.ui.TextInput(
         label="🗺️ Map",
         placeholder="Enter map name...",
-        default="BlockDash",
+        default="",
         max_length=50
     )
 
     abilities_field = discord.ui.TextInput(
         label="💥 Abilities",
         placeholder="Enter abilities...",
-        default="Punch, Spatula, Kick",
+        default="",
         max_length=100
     )
 
     mode_and_players_field = discord.ui.TextInput(
         label="🎮 Mode & Max Players",
         placeholder="1v1 8 (format: mode maxplayers)",
-        default="1v1 8",
+        default="",
         max_length=20
     )
 
     prize_field = discord.ui.TextInput(
         label="💶 Prize",
         placeholder="Enter prize...",
-        default="Default",
+        default="",
         max_length=50
     )
 
